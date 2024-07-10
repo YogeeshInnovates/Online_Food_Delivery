@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            display: block;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Delivery Details</h1>
+        <ul>
+            <li><strong>Name:</strong> <%= name %></li>
+            <li><strong>ID:</strong> <%= id %></li>
+            <li><strong>Phone:</strong> <%= phone %></li>
+            <li><strong>Order Date:</strong> <%= order_date %></li>
+            <li><strong>Order Number:</strong> <%= get_order_id %></li>
+        </ul>
+        <p><a href="https://www.google.com/maps/dir/<%= closestDeliveryBoy.latitude %>,<%= closestDeliveryBoy.longitude %>/<%= clatitude %>,<%= clongitude %>" target="_blank">Open in Google Maps</a></p>
+    </div>
+</body>
+</html>

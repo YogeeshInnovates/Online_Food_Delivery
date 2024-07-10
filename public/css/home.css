@@ -1,0 +1,195 @@
+.hero-section {
+  
+    background-color: rgb(57, 209, 189);
+    color: #fff; /* White text color */
+    padding: 100px 0; /* Top and bottom padding */
+    text-align: center; /* Center align content */
+  }
+.textcontent{
+  float:right;
+  width:auto;
+  height: 50px;
+  margin :7px 20px 15px  15px;
+  display: flex;
+  padding:5px;
+}
+.ulclass{
+  display:flex;
+}
+.textcontent2{
+  float:right;
+  width:auto;
+  height: 50px;
+  margin :10px 20px 15px  15px;
+  display: flex;
+  padding:5px;
+}
+  .featured-category {
+    background-color: #f8f9fa; /* Light gray background color */
+    padding: 50px 0; /* Top and bottom padding */
+    text-align: center; /* Center align content */
+  }
+  .container{
+    margin-top:50px;
+  }
+  .popular-restaurants {
+    background-color: #fff; /* White background color */
+    padding: 50px 0; /* Top and bottom padding */
+    text-align: center; /* Center align content */
+  }
+  .ulclass {
+    list-style-type: none; /* Remove bullet points or dots */
+  }
+  #scroll{
+      
+     /* background-color:rgb(224, 218, 218); Orange background color */
+     background-color: white;
+     box-shadow: 2px  2px 90px rgb(146, 144, 144);
+      width:100%;
+      float:right;
+ 
+     
+      font-size: 25px;
+    
+  margin-top:0px;
+  }
+  .d-flex{
+    height: 50px;
+    width:600px;
+    position:relative;
+    margin-top: 5px 23px 5px 23px;
+ 
+  }
+  .profile{
+    height: 60px;
+    width:60px;
+    border-radius: 50%;
+    margin-left:23px;
+    margin-right:23px ;
+    margin-bottom:10px;
+  }
+  .search{
+    background-color:rgb(224, 218, 218); 
+  }
+  #searchResults
+  {
+    width:600px;
+  
+  }
+  .highlight {
+    background-color: yellow !important;
+  }
+ .h2head{
+    display:flex;
+ }
+ .flex_content{
+    display:flex;
+    
+ }
+ .flex_content >div{
+    margin:4px;
+    font-size:30px;
+ }
+ 
+ .col-md-4 p{
+    font-size: 19px;
+ }
+ .col-md-4 img{
+    height:180px;
+    width:320px;
+   
+    transition: transform 0.3s ease; /* Smooth transition for transform */
+   
+    border-radius: 8px;
+ }
+
+ .col-md-4:hover img {
+  transform: scale(0.9); /* Reduce scale of the hovered image */
+  z-index:3;
+}
+
+
+ .col-md-4:nth-child(3n) {
+    margin-bottom:30px; /* Add extra margin-bottom to every 3rd item */
+  }
+  .nav-item a{
+/* color:  #ee730e; */
+color:black;
+  }
+ 
+  .nav-item a:hover{
+    background-image: linear-gradient(to right, #00ff00, #0000ff); /* Blue-green linear gradient */
+    background-clip: text; /* Apply gradient to text only */
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent; /* Make text transparent to show gradient */
+    transition: background-image 0.3s ease; 
+      }
+      .col-md-4 a{
+        color:black;
+        text-decoration: none;
+      }
+  .results-container {
+   display: flex;
+   flex-wrap: wrap; /* Allow items to wrap to the next line */
+   justify-content: space-around; /* Adjust as needed */
+ }
+ 
+ .results-container > div {
+   flex: 0 1 auto; /* Allow items to grow, shrink, and be the initial width */
+   margin: 10px; /* Adjust spacing between items */
+ }
+
+
+ /* For screens smaller than 768px (mobile devices) */
+@media screen and (max-width: 767px) {
+  .textcontent, .textcontent2 {
+    float: none; /* Reset float */
+    width: auto;
+    margin: 10px 0 15px; /* Adjust margins */
+  }
+
+  .d-flex {
+    width: auto; /* Reset width */
+    margin: 5px 0; /* Adjust margins */
+  }
+
+  .profile {
+    margin: 0; /* Reset margins */
+  }
+
+  .col-md-4 img {
+    height: auto; /* Adjust height and width for responsiveness */
+    width: 100%;
+    max-width: 100%; /* Adjust max-width */
+  }
+}
+
+/* For screens between 768px and 991px (tablets) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .container {
+    margin-top: 30px; /* Adjust margin-top */
+  }
+  .flex_content > div {
+    width: calc(50% - 8px); /* Adjust width for smaller screens */
+  }
+}
+
+/* For screens larger than 992px (desktops) */
+@media screen and (min-width: 992px) {
+  .container {
+    margin-top: 50px; /* Adjust margin-top */
+  }
+}
+
+
+@media only screen and (max-width: 576px) {
+   .flex_content > div {
+    width: calc(100% - 8px); /* Adjust width for mobile devices */
+  }
+  
+  .flex_content img {
+    width: 100%; /* Ensure images take up full width of their container */
+    height: 150px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure images maintain their aspect ratio and cover the container */
+  }
+}

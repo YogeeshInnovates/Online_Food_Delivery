@@ -1,0 +1,257 @@
+<!-- template.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Item Details</title>
+    <!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<style>
+   
+.containers{
+    background-color: white;
+   position:relative;
+   top:5px;
+   /* border:2px solid black; */
+   height:531px;
+   width:100%;
+   overflow: scroll;
+   
+}
+.items{
+    height:auto;
+    margin-top: 2px;
+    width:50%;
+    position:absolute;
+    top:40px;
+    display:inline-block;
+    flex-direction: row;
+    margin-left: 5px;
+ /* border:2px solid black; */
+    font-weight: 900;
+}
+.items h3{
+color:rgb(56, 54, 54)
+}
+.items p{
+    color:rgb(128, 126, 126)
+}
+.items_list{
+    height: auto;
+    width:800px;
+    padding:15px;
+    margin-left:20%;
+    /* border:2px solid rgb(245, 22, 208); */
+    margin-top:12px;
+ 
+}
+.food_list{
+    /* border:2px solid rgb(93, 233, 12); */
+     height:100%;
+     margin-top:120px;
+     padding:5px;
+}
+.food_list h5{
+    font-weight:bold;
+   font-style:inherit;
+   color:rgb(63, 59, 59)
+}
+.item_list_block{
+    /* border:2px solid rgb(219, 12, 12); */
+     height:100%;
+     padding:10px;
+     
+}
+.foodItem{
+    border-bottom:2px solid rgb(92, 89, 89);
+
+
+     margin-top:10px;
+     padding:2px;
+     height:170px;
+   /* align-items: center; */
+     display: flex; 
+     
+
+}
+.foodItem h8 {
+font-family:'Times New Roman', Times, serif;
+font-size: large;
+font-weight:bold;
+color:rgb(66, 66, 66)
+}
+.food_details {
+  flex: 1; /* Each compartment takes equal space */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+}
+
+.food_details2 {
+  flex: 1; /* Each compartment takes equal space */
+  padding: 10px;
+  margin-top:0;
+}
+.foodImage{
+margin-left:140px;
+    height:130px;
+    width:160px;
+  margin-top:1px;
+ 
+    
+}
+.foodItem button{
+    height:40px;
+    width:150px;
+    position:relative;
+
+    left:145px;
+    bottom:35px;
+    border-radius: 5px;
+    border:2px solid white;
+    box-shadow: 
+    3px 3px 10px rgba(255, 255, 255, 0.7), /* Bottom right */
+    -3px -3px 10px rgba(255, 255, 255, 0.7), /* Top left */
+    -3px 3px 10px rgba(255, 255, 255, 0.7), /* Top right */
+    3px -3px 10px rgba(255, 255, 255, 0.7); /* Bottom left */
+   
+}
+.cart_button{
+    width:819px;
+    height:50px;
+   
+    margin-left:19%;
+    margin-right:20%;
+    position:fixed;
+    bottom:0px;
+align-items: center;
+bottom:3px;
+    background-color: brown;
+    
+}
+.cart_button button{
+    height:100%;
+    width:100%;
+    border: 1px solid rgb(113, 236, 113);
+    background-color: rgb(68, 206, 68);
+    color:white
+}
+.searchbar{
+      position:fixed;
+      top:120px;
+      left:40%;
+      height:55px;
+      width:700px;
+      display:none;
+      z-index: 1000;
+    }
+    #searchInput{
+      height:100%;
+      width:100%;
+      border:2px solid rgb(214, 209, 209);
+      
+    }
+    #searchInput:hover{
+    box-shadow: 3px 3px  20px rgb(13, 214, 171);
+     
+    }
+</style>
+<body>
+
+
+    <form class="searchbar" id="searchForm">
+        <input class="form-control" id="searchInput" type="search" placeholder="Search" aria-label="Search">
+    </form>
+
+
+
+
+ <% if (issignup) { %>
+
+    <!-- User is logged in, render profile link -->
+    <%- include('partials/profilenav.ejs') %>
+  
+  <% } else { %>
+    <!-- User is not logged in, render signup link -->
+    <%-include('partials/nav.ejs')%>
+  <% } %>
+  
+   
+    <div class="containers">
+<div class="items_list">
+  <div class="items">
+    <h3> <%= items.restaurant_name %></h3>
+    <p> <%= items.location %></p>
+</div>
+
+<div class="item_list_block">
+    <div class="food_list">
+      <h5>Recommended</h5>
+    <% food.forEach(item => { %>
+
+        <form action="/addToCart" method="POST">
+            <input type="hidden" name="food_id" value="<%= item.food_id %>">
+       
+            <input type="hidden" name="itemName" value="<%= item.item_name %>">
+            <input type="hidden" name="price" value="<%= item.price %>">
+        <div class="foodItem">
+            <div class="food_details">
+            <h8><%= item.item_name %></h8>
+            <p> ₹<%= item.price %></p>
+        </div>
+        <div class="food_details2">
+         <img src="<%= item.base64Image %>" class="foodImage" data-item-id="<%= item.id %>" style="border-radius: 10px;">
+            <!-- Pass item.food_id as data-item-id -->
+            <button class="addToCartButton" type="submit" >ADD</button>
+        </div>
+        </div>
+    </form>
+
+    <% }); %>
+    
+    </div>
+    
+</div>
+
+</div>
+<div class="cart_button"><a href="/cart_item_list"><button>VIEW CART</button></a></div>
+</div>
+<script>
+  
+
+     function showsearchengine(){
+     const searchbar=document.getElementById("searchForm");
+     searchbar.style.display="flex";
+     searchbar.addEventListener("dblclick", function() {
+    // Make the search bar visible by changing its style display property
+    searchbar.style.display = "none";
+});
+    }
+    function filterItems() {
+        // Get the input value from the search bar
+        var searchText = document.getElementById('searchInput').value.toLowerCase();
+
+        // Get all food items
+        var foodItems = document.getElementsByClassName('foodItem');
+
+        // Loop through all food items and hide those that don't match the search criteria
+        for (var i = 0; i < foodItems.length; i++) {
+            var foodItemName = foodItems[i].getElementsByTagName('h8')[0].innerText.toLowerCase();
+
+            if (foodItemName.includes(searchText)) {
+                foodItems[i].style.display = 'flex'; // Show matching items
+            } else {
+                foodItems[i].style.display = 'none'; // Hide non-matching items
+            }
+        }
+    }
+
+    // Attach the filterItems function to the input event of the search input
+    document.getElementById('searchInput').addEventListener('input', filterItems);
+</script>
+
+</body>
+</html>

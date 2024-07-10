@@ -1,0 +1,88 @@
+
+<html>
+  <h></h>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+  
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <style>
+    .searchbar{
+      position:fixed;
+      top:140px;
+      left:30%;
+      height:55px;
+      width:700px;
+      display:none;
+      z-index: 1000;
+    }
+    #searchInput{
+      height:100%;
+      width:100%;
+      border:2px solid rgb(214, 209, 209);
+      
+    }
+    #searchInput:hover{
+    box-shadow: 3px 3px  20px rgb(13, 214, 171);
+     
+    }
+   
+  </style>
+  <body>
+   
+        <form class="searchbar" id="search" onclick="filterRestaurants(); return false;">
+          <input class="form-control me-2" id="searchInput" type="search" oninput="filterRestaurants()" placeholder="Search" aria-label="Search" >
+    
+        </form>
+     
+    
+
+ <% if (isLoggedIn) { %>
+  <!-- User is logged in, render profile link -->
+  <%- include('partials/profilenav.ejs') %>
+
+<% } else { %>
+  <!-- User is not logged in, render signup link -->
+  <%-include('partials/nav.ejs')%>
+<% } %>
+
+  
+      
+    
+    <%-include('partials/home.ejs')%>
+
+    <script src="/js/cart.js"></script>
+    <script src="/js/search.js"></script>
+    <script>
+     
+// JavaScriptdocument.addEventListener('click', function(event) {
+ 
+
+
+
+      function signup(){
+        const loginpage=document.querySelector(".login-container");
+      loginpage.style.display="none";
+            // Toggle the 'blurry-background' class on the body element
+            const signupContainer = document.querySelector(".signup-container");
+
+        // Display the signup container
+        signupContainer.style.display = "flex";
+       
+     
+    };
+    function login()
+    {
+
+      const signupContainer = document.querySelector(".signup-container");
+
+      signupContainer.style.display = "none";
+      const loginpage=document.querySelector(".login-container");
+      loginpage.style.display="flex";
+    };
+    function showsearchengine(){
+     const searchbar=document.getElementById("search");
+     searchbar.style.display="flex";
+    }
+    </script>
+  </body>
+</html>

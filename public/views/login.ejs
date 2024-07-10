@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <style>
+        /* Apply blur effect to the included partials */
+
+    </style>
+</head>
+<body>
+    <%-include('partials/nav.ejs')%>
+<div class="login-container">
+    <div class="login-box">
+      <div class="loginhead">  <h2>Login</h2>
+      <div id="createAccountLink">  <p>or  <a href="/SignUp?id=1"><span id="colored" >create an account</span></a></p></div>
+    <img src="/images/loginimage.avif">
+</div>
+        <form class="loginform" action="/login?id=1" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="phonenumber" name="phonenumber" placeholder="phonenumber" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+<div class="blurry-background">
+    <%- include('partials/home.ejs') %>
+</div>
+<script>
+       let count = localStorage.getItem('linkClickCount') || 0;
+        const link = document.getElementById('colored');
+        const createAccountLink = document.getElementById('createAccountLink');
+
+        link.addEventListener('click', function() {
+            count++;
+            if (count >= 3) {
+                alert("You have already created an account");
+             
+            }
+            localStorage.setItem('linkClickCount', count);
+        });
+
+        // Reset count when the page is loaded
+      
+</script>
+</body>
+</html>

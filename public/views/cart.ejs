@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+    
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cart_info{
+    margin: 0;
+}
+/* Style the side navigation */
+.sidenav {
+  height: 500px;
+  width: 420px;
+  position: fixed;
+  top: 100px;
+  right: 10px;
+  margin:5px;
+  margin-right:9px;
+  background-color:white;
+box-shadow: 3px 3px 7px rgb(209, 207, 207);;
+  border: 1px solid rgb(209, 207, 207);
+  padding:5px;
+  overflow-y: scroll;
+}
+
+
+
+/* Style the content */
+.content {
+    height: 500px;
+  width:140vh;
+  margin:15px;
+  position: fixed;
+  top: 100px;
+  left: 2px;
+  z-index: 20;
+  overflow-y: scroll;
+ 
+  background-color:#f1efef;
+  
+}
+.delivery_info{
+    position: relative;
+    padding: 10px;
+    border: 20px solid #f1efef;
+    margin-top:0px;
+    height:auto;
+    background-color: white;
+   
+
+}
+.cart_item{
+    width:100%;
+    border: 1px solid rgb(172, 169, 169);
+    height:70px;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; 
+}
+.item_lists{
+   height:34px;
+   font-weight:400;
+  
+    margin-top:14px;
+    margin-right: 5px;
+}
+
+.item_lists a i{
+    position:relative;
+
+    float:right;
+}
+.item_lists_price
+{
+    border-top:2px solid black;
+    margin-top:14px;
+    padding:17px;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; 
+   
+   
+}
+
+.container {
+   
+    
+    padding: 8px;
+
+}
+
+.container img{
+    max-width: 150px; /* Ensure the image doesn't exceed the container's width */
+    max-height: 150px;
+    left:80%;
+    position: absolute; /* Position the image absolutely within the container */
+    top: 140px; /* Align the top of the image to the middle of the container */
+    transform: translateY(-50%);
+}
+#Signup{
+    background-color:white;
+    color:green;
+    border:2px solid green;
+}
+
+#Signup:hover{
+    color:white;
+    background-color: green;
+}
+#Login{
+    background-color:white;
+    color:green;
+    border:2px solid green;
+}
+
+#Login:hover{
+    color:white;
+    background-color: green;
+}
+.input-container {
+    display: none;
+}
+.login-container{
+    display: none;
+}
+form{
+    width:350px;
+    border-radius: 5px;
+
+    height:auto;
+    padding:3px;
+    display: flex;
+            flex-direction: column; 
+       
+}
+form input  {
+height:65px;
+
+    width: 100%;
+}
+
+form button{
+    height:70px;
+    margin-top:12px;
+    background-color: green;
+}
+
+#textarea{
+    display:none;
+}
+#add_new{
+    height:30px;
+    margin-top:12px;
+    background-color: rgb(231, 240, 231);
+    border: 2px solid green;
+    color:green;
+}
+#getCurrentLocationBtn{
+    height:30px;
+    margin-top:12px;
+    width:150px;
+    background-color: rgb(231, 240, 231);
+    border: 2px solid green;
+    color:green;
+}
+#send{
+    display: none;
+    height:30px;
+  
+    margin-top:30px;
+    width:auto;
+    background-color: rgb(231, 240, 231);
+    border: 2px solid green;
+    color:green;
+}
+
+.locationtrace{
+    width:100px;
+    display:flex;
+   flex-direction: column;
+    margin-left: 10px;
+}
+.box{
+    width:400px;
+    height:auto;
+
+    padding:7px;
+    border: 1px solid rgb(172, 169, 169);
+    box-shadow: 2px 2px 4px rgb(172, 169, 169);
+}
+.paymentbox{
+    width:400px;
+    height:50px;
+}
+.payment{
+ 
+    height:100%;
+    width:600px;
+    background-color: rgb(231, 240, 231);
+    border: 2px solid green;
+    color:green;
+}
+
+#changeButton{
+
+    height:60px;
+    width:300px;
+    background-color: aqua;
+}
+#confirm{
+    width:200px;
+    height:50px;
+    display:none;
+    background-color: aqua;
+}
+@media screen and (max-width: 768px) {
+  .sidenav {
+    width: 100%; /* Set width to full screen */
+    max-width: none; /* Remove max-width restriction */
+    position: static; /* Remove fixed positioning */
+    margin: 0; /* Remove margin */
+  }
+
+  .content {
+    width: 90%; /* Adjust width for better readability */
+    max-width: none; /* Remove max-width restriction */
+    margin: 15px auto; /* Center content horizontally */
+    position: static; /* Remove relative positioning */
+    top: 0; /* Remove top positioning */
+  }
+  .cart_item {
+    display: block; /* Ensure the cart item is displayed */
+    width: auto; /* Set width to auto to accommodate content */
+    margin: 10px; /* Add margin for spacing */
+    margin-top: 80px;
+    justify-content: center;
+    text-align: center;
+    padding:12px;
+  }
+  .delivery_info {
+  max-width: 400px; /* Set the maximum width of the delivery info container */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.box {
+  width: 100%; /* Set the width of the box to 100% to fit within its container */
+  max-width: 100%; /* Ensure the box doesn't exceed the container's width */
+}
+
+  .paymentbox {
+    width: 90%; /* Adjust width of the payment box */
+    max-width: 400px; /* Set maximum width to maintain readability */
+    margin: 0 auto; /* Center the box horizontally */
+  }
+
+  .payment {
+    width: 100%; /* Set the width of the "Proceed to Pay" button to 100% */
+  }
+  #changeButton {
+  width: auto; /* Set the width to auto or adjust it to your desired width */
+}
+}
+</style>
+<!-- <link rel="stylesheet" href="/css/cart.css"> -->
+</head>
+<body>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <div class="conatiner_box">
+    <% if (issignup) { %>
+        <!-- User is logged in, render profile link -->
+        <%- include('partials/profilenav.ejs') %>
+    <% } else { %>
+        <!-- User is not logged in, render signup link -->
+        <%- include('partials/nav.ejs') %>
+    <% } %>
+    
+  
+    <div class="sidenav">
+        <div class="cart_item"> Your orders</div>
+       
+            <% let totalPrice = 0; %>
+            <% if (items && items.length > 0) { %>
+               
+                <ol>
+                    <% items.forEach(item => { %>
+                        <div class="item_lists">
+                            <li ><%= item.item_name %> - <%= item.price %>
+                                <a href="/remove-item?itemId=<%= item.food_id %>&id=<%= item.id %>">
+                                    <i class="fas fa-times-circle" id="remove" ></i>
+                                </a>
+                            </li> 
+                            <% totalPrice += item.price; %>
+                        </div>
+                    <% }); %>
+                </ol>
+            <% } else { %>
+                <p>No items in the cart</p>
+            <% } %>
+            <div class="item_lists_price">
+                <h4>TO PAY =   <%= totalPrice %></h4>
+            </div>
+            <p>Review your order and address details to avoid cancellations
+<br><br>
+Note: If you cancel within 60 seconds of placing your order, a 100% refund will be issued. No refund for cancellations made after 60 seconds.
+
+Avoid cancellation as it leads to food wastage.</p>
+    </div>
+
+
+
+    <input type="hidden" id="data" value="<%= JSON.stringify(issignup) %>">
+   
+
+    <!-- to conform whether person login or  not issignup value comming from server -->
+  
+ 
+
+<div class="content">
+  <div class="delivery_info">
+   <div class="container">
+    <img src="/images/loginimage.avif">
+    <h3>Account</h3><br>
+<p>To place your order now, log in to your existing account or sign up.</p>
+    <button id="Signup"><h8>New to TasteToDoor?</h8><h5>SIGNUP</h5></button>
+    <button id="Login"><h8>Have an Account?</h8><h5>LOGIN</h5></button>
+
+    <div id="loginContainer" class="login-container">
+        <p>Login or <span id="signupLink">create an account</span></p>
+
+        <form class="loginform" action="/login?id=2" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="phonenumber" name="phonenumber" placeholder="phonenumber" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="inputContainer" class="input-container">
+        <p>SignUp or <span id="loginLink">login to your account</span></p>
+        <form action="/SignUp?id=2" method="POST">
+            <input type="text" name="username"  placeholder="Username" required>
+            <input type="mail"   name="mail"  placeholder="mail" required>
+            <input type="phonenumber"  name="phonenumber"  placeholder="phonenumber" required>
+            <button type="submit">CONTINUE</button>
+        </form>
+    </div>
+</div>
+  </div>
+
+
+  <!-- second  box containg delivery address -->
+  
+<div class="delivery_info">
+    
+    <h4>Add a delivery address</h4>
+    <p>You seen to be in the new location </p>
+    <div class="container" id="changeoption"> 
+        <div class="box" id="address">
+            <h3>Add New Address</h3>
+            <button type="button" id="getCurrentLocationBtn" onclick="this.disabled=true;">Current Location</button> <button id="add_new">ADD NEW</button> 
+            <form action="/location" method="POST" id="addressForm">
+                <input type="hidden" id="latitude" name="latitude">
+                <input type="hidden" id="longitude" name="longitude">
+                <div id="textarea">
+                    <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter your message"></textarea>
+                </div>
+                <input type="hidden" id="result"  name="latitude_from_address">
+                <input type="hidden"  id="result2"  name="longitude_from_address">
+               
+          <!-- <button type="button" id="getCurrentLocationBtn">Current Location</button> -->
+                <button type="submit" id="send">SAVE ADDRESS & PROCEED</button>
+            </form>
+            <button id="confirm">PROCEED</button>
+      
+    </div> 
+        <!-- </div> <button onclick="getLocation()">Get Location</button> -->
+    </div>
+</div>
+
+
+  <!-- Third box containing payment -->
+  <div class="delivery_info">
+    
+    <h4>Choose payment method</h4>
+    
+    <div class="container"> 
+        <div class="paymentbox" >
+            <a href="/payment?totalPrice=<%= totalPrice %>" id="Account_info"><button class="payment" id="paymentinput">PROCEED TO PAY</button></a>
+
+  </div>
+  </div>
+</div>
+
+<!-- <a href="https://www.google.com/maps/dir/Abhyudaya Havyaka Boys Hostel, 3HR2+89C, Adityanagar, Vidyaranyapura, Bengaluru, Karnataka 560097/No 34 Building, 34, Sreenivas Reddy Layout Rd, Sri Nivasa Reddy Layout, Kundalahalli Colony, Brookefield, Bengaluru, Karnataka 560037" target="_blank">Open in Google Maps</a> -->
+</div></div>
+<script>
+    const proceed = document.getElementById("confirm");
+const add_newbut = document.getElementById("add_new");
+add_newbut.addEventListener('click', function() {
+    add_newbut.style.marginLeft = '3px'; // Use camelCase notation or bracket notation
+    proceed.style.display="block"
+  add_newbut.style.display="none";
+    const getCurrentLocationBtn =document.getElementById("getCurrentLocationBtn");
+    getCurrentLocationBtn.style.display='none';
+    const sendbut=document.getElementById("send");
+sendbut.style.display='none';
+sendbut.style.marginLeft='7px';
+sendbut.style.marginTop='13px';
+});
+
+
+proceed.addEventListener('click', function() {
+   
+    var sendbut = document.getElementById("send");
+     
+    var platform = new H.service.Platform({
+        'apikey': 'dg2H9rByestxo1DV0J2Zz33Ae_mnC2nkbovaBRK7-ls'
+    });
+
+    var address = document.getElementById('message').value;
+    var service = platform.getSearchService();
+
+    service.geocode({ q: address })
+        .then(function (result) {
+            var location = result.items[0].position;
+            var lat = location.lat || null;
+            var lng = location.lng || null;
+
+            document.getElementById('result').value = lat;
+            document.getElementById('result2').value = lng;
+
+            // Display the "Coming" alert and the send button
+         alert("You successfully stored  address")
+            var sendbut = document.getElementById("send");
+            sendbut.style.display = 'block';
+            sendbut.style.marginLeft = '7px';
+            sendbut.style.marginTop = '13px';
+            proceed.style.display="none";
+        })
+        .catch(function (error) {
+            console.error('Error:', error);
+            alert("Please Provide the currect address");
+            
+        });
+});
+
+
+
+var hiddenInput = document.getElementById("data");
+        var issignup = JSON.parse(hiddenInput.value);
+   
+        // Use the issignup variable as needed
+      
+// to precess by process open box
+   const deliveryInfos = document.querySelectorAll('.delivery_info');
+   if(issignup===1){
+ 
+if (deliveryInfos.length >= 2) {
+
+    deliveryInfos[0].style.display = 'none';
+    const getCurrentLocationBtn =document.getElementById("getCurrentLocationBtn").disabled = false;
+    const add_newbut=document.getElementById("add_new").disabled = false;
+    const sendbut=document.getElementById("send").disabled = false;
+   
+    document.getElementById("paymentinput").disabled = true;
+    // Additional code to hide or disable other elements if needed
+    document.getElementById("Account_info").removeAttribute("href");
+}
+   }
+   else if (issignup === 2) {
+    document.getElementById("paymentinput").disabled = true;
+    // Additional code to hide or disable other elements if needed
+    document.getElementById("Account_info").removeAttribute("href");
+    alert("Your location is stored successfully ");
+    // Hide the first delivery info
+    deliveryInfos[0].style.display = 'none';
+    
+    // Hide the address element
+    document.getElementById("address").style.display = "none";
+    var buttonDiv = document.createElement("div");
+    buttonDiv.innerHTML = "<button id='changeButton' onclick='getaddress()'>Change</button>";
+
+    
+    // Append the button div to the address element
+    document.getElementById("changeoption").appendChild(buttonDiv);
+} else if (issignup === 3){
+
+    
+if (deliveryInfos.length >= 2) {
+
+deliveryInfos[0].style.display = 'none';
+}
+    document.getElementById("paymentinput").disabled = false;
+    // Additional code to hide or disable other elements if needed
+    var paymentLink = document.getElementById("paymentLink");
+var totalPrice = paymentLink.getAttribute("data-totalprice");
+document.getElementById("Account_info").setAttribute("href", "/payment?totalPrice=" + totalPrice);
+
+    // Disable buttons
+    document.getElementById("getCurrentLocationBtn").disabled = true;
+    document.getElementById("add_new").disabled = true;
+    document.getElementById("send").disabled = true;
+}
+function getaddress(){
+   
+    document.getElementById("Account_info").removeAttribute("href");
+    document.getElementById("address").style.display = "block";
+    document.getElementById("changeButton").style.display="none"
+}
+
+
+    const signupBtn = document.getElementById('Signup');
+const LoginBtn = document.getElementById('Login');
+const signupContainer = document.getElementById('inputContainer');
+const loginContainer=document.getElementById('loginContainer');
+signupBtn.addEventListener('click', () => {
+    signupContainer.style.display = 'block';
+    signupBtn.style.display='none';
+    LoginBtn.style.display='none';
+});
+
+LoginBtn.addEventListener('click', () => {
+    loginContainer.style.display = 'block';
+    signupBtn.style.display='none';
+    LoginBtn.style.display='none';
+});
+// Get the signup link element
+const signupLink = document.getElementById("signupLink");
+const loginLink=document.getElementById("loginLink");
+// Add a click event listener to the signup link
+signupLink.addEventListener("click", function() {
+    signupContainer.style.display = 'block';
+    signupBtn.style.display='none';
+    LoginBtn.style.display='none';
+    loginContainer.style.display = 'none';
+});
+loginLink.addEventListener('click',function(){
+    loginContainer.style.display = 'block';
+    signupBtn.style.display='none';
+    LoginBtn.style.display='none';
+    signupContainer.style.display = 'none';
+});
+
+// when click add_new button it show text area 
+const send=document.getElementById('send');
+const textarea=document.getElementById("textarea");
+const add_new=document.getElementById("add_new");
+const getCurrentLocationBtn=document.getElementById('getCurrentLocationBtn');
+add_new.addEventListener('click',function(){
+    textarea.style.display="block";
+
+  
+
+});
+
+// get currect location
+
+document.getElementById('getCurrentLocationBtn').addEventListener('click', function() {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                // Update form fields with latitude and longitude
+                document.getElementById("latitude").value = latitude;
+                document.getElementById("longitude").value = longitude;
+               
+                // Submit the form
+           
+   
+    document.getElementById("addressForm").submit();
+
+
+            });
+   
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+</body>
+</html>

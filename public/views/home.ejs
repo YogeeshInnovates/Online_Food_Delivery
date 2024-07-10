@@ -1,0 +1,28 @@
+
+
+<html>
+  <h></h>
+
+  <body>
+    <nav id="scroll">
+      <div class="textcontent">
+        <form class="d-flex" onclick="filterRestaurants(); return false;">
+          <input class="form-control me-2" id="searchInput" type="search" oninput="filterRestaurants()" placeholder="Search" aria-label="Search" >
+      
+        </form>
+        <a href="/home2"><img src="/images/profile.jpg" class="profile" alt="profile"></a>
+      </div>
+
+
+    </nav>
+    <section class="hero-section">
+      <div class="container">
+        <h1>Welcome to TasteToDoor</h1>
+        <p>Order food online from your favorite restaurants!</p>
+        <!-- <a href="#" class="btn btn-primary btn-lg">Order Now</a> -->
+      </div>
+    </section>
+    <%-include('partials/home.ejs')%>
+    <script src="/js/search.js"></script>
+  </body>
+</html>

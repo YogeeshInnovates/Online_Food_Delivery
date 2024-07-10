@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Page</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 20px;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h1 style="text-align: center; color: #333333; margin-bottom: 20px;">Order Processing...</h1>
+        <p style="color: #666666; margin-bottom: 10px;">Your order is being processed.</p>
+        <p style="color: #666666; margin-bottom: 10px;">Thank you for choosing our service. We're preparing your order</p>
+    </div>
+    <script>
+        setTimeout(function() {
+            window.location.href = "/home2"; // Assuming "/secondPage" is the route for the second EJS file
+        }, 5000); 
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!-- location  tracing technique -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delivery Route</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([13.0908, 77.5509], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            subdomains:['a','b','c']
+        }).addTo(map);
+
+        // Define the route from Sambhram College to Abhyudaya Road (replace with actual route)
+        var routeCoordinates = [
+            [13.0970, 77.54147], // Sambhram College
+            [13.096, 77.548],   // Waypoint 1
+            [13.096, 77.5510],   // Waypoint 2
+            [13.0938, 77.5509]  // Abhyudaya Road
+        ];
+
+        // Draw the route polyline on the map
+        // var routePolyline = L.polyline(routeCoordinates, {color: 'blue', weight: 5}).addTo(map);
+
+        // Simulate delivery boy's movement along the route
+        var deliveryBoyIcon = L.icon({
+            iconUrl: 'cow2.jpeg', // Path to the custom icon image
+            iconSize: [38, 38], // Size of the icon
+            iconAnchor: [19, 38], // Point of the icon which corresponds to marker's location
+            popupAnchor: [0, -30] // Point from which the popup should open relative to the iconAnchor
+        });
+        var deliveryBoyMarker = L.marker(routeCoordinates[0], {icon: deliveryBoyIcon}).addTo(map);
+        var currentIndex = 0; // Current index in routeCoordinates array
+        var moveInterval = setInterval(function() {
+            currentIndex++;
+            if (currentIndex < routeCoordinates.length) {
+                deliveryBoyMarker.setLatLng(routeCoordinates[currentIndex]);
+            } else {
+                clearInterval(moveInterval); // Stop movement when end of route is reached
+            }
+        }, 5000); // Move every 5 seconds
+
+        // Detect delivery boy's position on the route
+        function detectPositionOnRoute(currentPosition) {
+            var shortestDistance = Infinity;
+            var nearestSegmentIndex = -1;
+            for (var i = 0; i < routeCoordinates.length - 1; i++) {
+                var segmentStart = routeCoordinates[i];
+                var segmentEnd = routeCoordinates[i + 1];
+                var distance = L.GeometryUtil.distanceSegment(map, currentPosition, segmentStart, segmentEnd);
+                if (distance < shortestDistance) {
+                    shortestDistance = distance;
+                    nearestSegmentIndex = i;
+                }
+            }
+            return nearestSegmentIndex;
+        }
+
+        // Example of how to use detectPositionOnRoute function
+        var currentPosition = [13.094, 77.548]; // Example current position of delivery boy
+        var nearestSegmentIndex = detectPositionOnRoute(currentPosition);
+        console.log('Delivery boy is on segment:', nearestSegmentIndex);
+    </script>
+</body>
+</html>
+
+
+
+
+
+<!-- -----------------------it is working but remove all above for work all code are working----- -->
